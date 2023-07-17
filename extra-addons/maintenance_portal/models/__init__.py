@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+
+from . import maintenance_request
+from . import maintenance_product_list
+from . import maintenance_equipment
+from . import hr_timesheet
+from . import maintenance_plan
+from . import maintenance_priority

@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+        <template id="helpdesk_mod.portal_my_tickets_inherit"
+                  inherit_id="helpdesk_mgmt.portal_ticket_list"
+                  active="True"
+                  customize_show="False"
+        >
+            <xpath expr="//th[text()='Category']"
+                   position="replace">
+                <th>Tipo</th>
+            </xpath>
+            <xpath expr="//span[@t-esc='ticket.category_id.name']"
+                   position="replace">
+                <span t-esc="ticket.type_id.name"/>
+            </xpath>
+        </template>
+
+        <template id="helpdesk_mod.portal_ticket_page_inherit"
+                  inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page"
+                  active="True"
+                  customize_show="False"
+        >
+            <xpath expr="//div[@name='portal_ticket_col_0']/div[2]/strong" position="replace">
+                <b>Tipo:</b>
+            </xpath>
+            <xpath expr="//div[@name='portal_ticket_col_0']/div[2]/span" position="replace">
+                <t t-esc="ticket.type_id.name"/>
+            </xpath>
+        </template>
+
+        <template id="helpdesk_mod.portal_create_ticket_inherit"
+                  inherit_id="helpdesk_mgmt.portal_create_ticket"
+                  active="True"
+                  customize_show="False"
+        >
+            <xpath expr="//form/div[2]" position="replace">
+                <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="tipo"
+                >
+                    Tipo de ticket
+                </label>
+                <div class="col-md-7 col-sm-8">
+                    <select
+                            class="form-control"
+                            id="tipo"
+                            name="tipo"
+                            required="True"
+                    >
+                        <t t-foreach="type" t-as="ty">
+                            <option t-attf-value="#{ty.id}">
+                                <t t-esc="ty.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+                <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="team"
+                >Equipo de mesa de ayuda:
+                </label>
+                <div class="col-md-7 col-sm-8">
+                    <select
+                            class="form-control"
+                            id="team"
+                            name="team"
+                            required="True"
+                    >
+                        <t t-foreach="helpdesk_team" t-as="team">
+                            <option t-attf-value="#{team.id}">
+                                <t t-esc="team.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

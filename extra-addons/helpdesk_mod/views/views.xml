@@ -1,0 +1,69 @@
+<odoo>
+  <data>
+    <record id="view_helpdesk_ticket_view_form_inherit" model="ir.ui.view">
+      <field name="name">helpedesk.ticket.view.form.inherit</field>
+      <field name="model">helpdesk.ticket</field>
+      <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"></field>
+      <field name="arch" type="xml">
+        <field name="priority" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </field>
+        <field name="category_id" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </field>
+        <field name="tag_ids" position="after">
+          <field name="maintenance_request_id"/>
+        </field>
+        <xpath expr="//group[@name='main']" position="after">
+            <hr></hr>
+            <group>
+              <field name="product_structure_ids" widget="section_and_note_one2many" mode="tree">
+                  <tree string="Estructura de productos" editable="bottom">
+                    <control>
+                      <create name="add_product_control" string="Agregar producto"/>
+                    </control>
+                    <field name="product_id" string="Producto"/>
+                    <field name="quantity" string="Cantidad"/>
+                    <field name="unit_of_measurement" string="Unidad de medida"/>
+                  </tree>
+                </field>
+            </group>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_type_view_tree_inherit" model="ir.ui.view">
+      <field name="name">helpedesk.ticket.type.view.tree.inherit</field>
+      <field name="model">helpdesk.ticket.type</field>
+      <field name="inherit_id" ref="helpdesk_type.helpdesk_ticket_type_tree"></field>
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+          <field name="access_group"/>
+        </field>
+      </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_type_view_form_inherit" model="ir.ui.view">
+      <field name="name">helpedesk.ticket.type.view.form.inherit</field>
+      <field name="model">helpdesk.ticket.type</field>
+      <field name="inherit_id" ref="helpdesk_type.helpdesk_ticket_type_form"></field>
+      <field name="arch" type="xml">
+        <field name="team_ids" position="after">
+          <field name="access_group"/>
+        </field>
+      </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_mod_view_tree_inherit" model="ir.ui.view">
+      <field name="name">helpedesk.ticket.mod.view.tree.inherit</field>
+      <field name="model">helpdesk.ticket</field>
+      <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree"></field>
+      <field name="arch" type="xml">
+        <field name="priority" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </field>
+      </field>
+    </record>
+
+  </data>
+</odoo>

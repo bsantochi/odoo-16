@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_ticket_type_portal,helpdesk_ticket_type_group_portal,helpdesk_type.model_helpdesk_ticket_type,base.group_portal,1,0,0,0
+access_helpdesk_ticket_team_portal,helpdesk_ticket_team_group_portal,helpdesk_type.model_helpdesk_ticket_team,base.group_portal,1,0,0,0

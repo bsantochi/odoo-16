@@ -13,5 +13,35 @@
         </field>
       </field>
     </record>
+
+
+    <record id="view_helpdesk_ticket_view_form_inherit" model="ir.ui.view">
+      <field name="name">helpedesk.ticket.view.form.inherit</field>
+      <field name="model">helpdesk.ticket</field>
+      <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"></field>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='main']" position="after">
+            <hr></hr>
+            <group>
+              <field name="product_structure_ids" widget="section_and_note_one2many" mode="tree">
+                  <tree string="Estructura de productos" editable="bottom">
+                    <control>
+                      <create name="add_product_control" string="Agregar producto"/>
+                    </control>
+                    <field name="product_id" string="Producto"/>
+                    <field name="quantity" string="Cantidad"/>
+                    <field name="unit_of_measurement" string="Unidad de medida"/>
+                  </tree>
+                </field>
+            </group>
+        </xpath>
+      </field>
+    </record>
+
   </data>
 </odoo>
+
+
+
+
+

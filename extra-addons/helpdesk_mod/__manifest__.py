@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'helpdesk_mgmt', 'helpdesk_type', 'maintenance_venturi'],
+    'depends': ['base', 'helpdesk_mgmt', 'helpdesk_type'],
 
     # always loaded
     'data': [

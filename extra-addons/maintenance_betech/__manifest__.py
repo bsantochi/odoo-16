@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "maintenance_venturi",
+    'name': "maintenance_betech",
 
     'summary': """
-        Maintenance Portal para Venturi""",
+        Maintenance Portal para Be Tech """,
 
     'description': """
         Modificaciones del addon "maintenance_portal" para Venturi
@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'maintenance_portal', 'stock', 'helpdesk_mgmt', 'helpdesk_mod'],
+    'depends': ['base', 'maintenance_portal', 'stock'],
 
     # always loaded
     'data': [

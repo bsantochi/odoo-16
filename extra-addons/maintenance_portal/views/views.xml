@@ -16,7 +16,7 @@
         <xpath expr="//field[@name='employee_id']" position="after">
           <field name="partner_id"/>
         </xpath>
-        <xpath expr="//field[@name='maintenance_type']" position="after">
+        <xpath expr="//sheet/group/group[2]/field[last()]" position="after">
           <field name="maintenance_priority_id"/>
         </xpath>
         <xpath expr="//field[@name='user_id']" position="after">
@@ -49,8 +49,7 @@
       <field name="inherit_id" ref="maintenance.hr_equipment_view_form"></field>
       <field name="arch" type="xml">
         <xpath expr="//page[@name='maintenance']" position="after">
-          <page string="Estructura">
-            <group>
+          <page string="Estructura de productos">
               <field name="product_structure_ids" widget="section_and_note_one2many" mode="tree,kanban">
                 <tree string="Estructura de productos" editable="bottom">
                   <control>
@@ -61,7 +60,6 @@
                   <field name="unit_of_measurement" string="Unidad de medida "/>
                 </tree>
               </field>
-            </group>
           </page>
         </xpath>
       </field>
@@ -72,9 +70,6 @@
       <field name="model">maintenance.request</field>
       <field name="inherit_id" ref="maintenance_plan.hr_equipment_request_view_form"></field>
       <field name="arch" type="xml">
-        <field name="maintenance_kind_id" position="attributes">
-          <attribute name="invisible">1</attribute>
-        </field>
         <xpath expr="//notebook/page" position="after">
           <page string="Estructura del equipamiento">
               <field name="equipment_structure_ids" widget="section_and_note_one2many" mode="tree,kanban">
@@ -86,17 +81,6 @@
               </field>
           </page>
         </xpath>
-      </field>
-    </record>
-
-    <record id="view_maintenance_plan_form_inherit" model="ir.ui.view">
-      <field name="name">maintenance.plan.inherit</field>
-      <field name="model">maintenance.plan</field>
-      <field name="inherit_id" ref="maintenance_plan.maintenance_plan_view_form"></field>
-      <field name="arch" type="xml">
-        <field name="maintenance_kind_id" position="attributes">
-          <attribute name="invisible">1</attribute>
-        </field>
       </field>
     </record>
 
@@ -113,22 +97,6 @@
         </field>
       </field>
     </record>
-
-
-    <!-- <record id="view_picking_form_inherit" model="ir.ui.view">
-      <field name="name">stock.picking.inherit</field>
-      <field name="model">stock.picking</field>
-      <field name="inherit_id" ref="stock.view_picking_form"></field>
-      <field name="arch" type="xml">
-        <field name="origin" position="attributes">
-          <attribute name="invisible">1</attribute>
-        </field>
-        <field name="origin" position="after">
-          <field name="ticket_id"/>
-        </field>
-      </field>
-    </record> -->
-
 
     <record id="view_maintenance_plan_form_inherit" model="ir.ui.view">
       <field name="name">maintenance.plan.inherit</field>
@@ -231,6 +199,8 @@
       action="maintenance_maintenance_priority_action"
       parent="maintenance.menu_maintenance_configuration"
       sequence="10"/>
+
+
 
   </data>
 </odoo>

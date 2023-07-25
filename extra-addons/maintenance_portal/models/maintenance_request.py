@@ -28,15 +28,6 @@ class MaintenanceRequest(models.Model):
 
     user_id = fields.Many2one('res.users', string='Technician', tracking=True, domain=get_maintenance_member_ids)
 
-    # maintenance_priority = fields.Selection([
-    #     ('1', '1- Maquina parada / producción detenida'),
-    #     ('2', '2- Maquina funcionando / necesidad de reparación'),
-    #     ('3', '3- No afecta a la producción'),
-    #     ('4', '4- Otro / detallar en notas')
-    #   ],
-    #   store=True,
-    #   copied=True,
-    #   string="Prioridad")
 
     maintenance_priority_id = fields.Many2one(
       comodel_name="maintenance.maintenance_priority",

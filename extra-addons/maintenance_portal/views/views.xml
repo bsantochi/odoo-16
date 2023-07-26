@@ -43,6 +43,17 @@
       </field>
     </record>
 
+    <record id="view_custom_equipment_request_view_form_inherit" model="ir.ui.view">
+      <field name="name">maintenance.request.inherit</field>
+      <field name="model">maintenance.request</field>
+      <field name="inherit_id" ref="base_maintenance.equipment_request_view_form"></field>
+      <field name="arch" type="xml">
+        <xpath expr="//notebook" position="attributes">
+        <attribute name="colspan">2</attribute>
+        </xpath>
+      </field>
+    </record>
+
     <record id="view_maintenance_equipment_form_inherit" model="ir.ui.view">
       <field name="name">maintenance.equipment.inherit</field>
       <field name="model">maintenance.equipment</field>
@@ -199,8 +210,6 @@
       action="maintenance_maintenance_priority_action"
       parent="maintenance.menu_maintenance_configuration"
       sequence="10"/>
-
-
 
   </data>
 </odoo>

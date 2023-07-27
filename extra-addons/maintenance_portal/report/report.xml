@@ -47,7 +47,7 @@
                             </div>
                             <div>
                                 <strong>Prioridad: </strong>
-                                <span t-field="doc.maintenance_priority"/>
+                                <span t-field="doc.maintenance_priority_id"/>
                             </div>
                         </div>
                         <div class="border border-dark rounded p-2 mt-2">

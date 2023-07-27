@@ -16,13 +16,8 @@ class MaintenanceProductList(models.Model):
         copied=True
     )
     unit_of_measurement = fields.Many2one('uom.uom', related='product_id.uom_id', string='Unidad de medida', readonly=True, store=True, copied=True)
-
     maintenance_request_id = fields.Many2one('maintenance.request', string="Peticion de mantenimiento")
-
     maintenance_equipment_id = fields.Many2one('maintenance.equipment', string="Equipamiento")
-
-    # ticket_id = fields.Many2one('helpdesk.ticket', string="Ticket")
-
     maintenance_plan_id = fields.Many2one('maintenance.plan', string="Plan de mantenimiento")
 
     @api.onchange('product_id')

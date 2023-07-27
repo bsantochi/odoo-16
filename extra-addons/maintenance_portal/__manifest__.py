@@ -20,7 +20,6 @@
         'views/views.xml',
         'views/templates.xml',
         'report/report.xml',
-        # 'security/maintenance_portal_security.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

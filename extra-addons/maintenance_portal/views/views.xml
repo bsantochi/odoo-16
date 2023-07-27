@@ -22,8 +22,9 @@
         <xpath expr="//field[@name='user_id']" position="after">
           <field name="acting_user_ids" widget="many2many_tags"/>
         </xpath>
-        <xpath expr="//field[@name='category_id']" position="after">
-          <field name="department_id" attrs="{'invisible': [('equipment_id', '=', False)]}"/>
+        <xpath expr="//field[@name='request_date']" position="before">
+          <field name="department_id"
+                 attrs="{'invisible': [('department_id', '=', False)]}"/>
         </xpath>
         <xpath expr="//sheet/group" position="after">
           <hr></hr>
@@ -54,6 +55,8 @@
       </field>
     </record>
 
+
+
     <record id="view_maintenance_equipment_form_inherit" model="ir.ui.view">
       <field name="name">maintenance.equipment.inherit</field>
       <field name="model">maintenance.equipment</field>
@@ -81,6 +84,9 @@
       <field name="model">maintenance.request</field>
       <field name="inherit_id" ref="maintenance_plan.hr_equipment_request_view_form"></field>
       <field name="arch" type="xml">
+        <xpath expr="//notebook/page[@name='description_page']" position="attributes">
+        <attribute name="string">Descripción</attribute>
+        </xpath>
         <xpath expr="//notebook/page" position="after">
           <page string="Estructura del equipamiento">
               <field name="equipment_structure_ids" widget="section_and_note_one2many" mode="tree,kanban">

@@ -75,11 +75,3 @@ class MaintenanceRequest(models.Model):
               'maintenance_request_id': res.id
             })]
       return res
-
-    # def _get_maintenance_member_ids(self):
-    #   member_list = []
-    #   members = self.env['maintenance.maintenance_team'].search([])
-    #   for rec in members:
-    #     member_list.append(rec.member_ids)
-    #   set_res = set(member_list)
-    #   return list(set_res)

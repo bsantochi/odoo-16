@@ -98,7 +98,7 @@
                                     <t t-esc="req.code" />
                                 </td>
                                 <td>
-                                    <t t-esc="req.maintenance_priority_id" />
+                                    <t t-esc="req.maintenance_priority_id.name" />
                                 </td>
                                 <td>
                                     <a t-attf-href="/my/maintenance_req/#{req.id}">
@@ -152,7 +152,8 @@
                                     <span t-esc="maintenance.code" />
                                     <br />
                                     <strong>Prioridad:</strong>
-                                    <span t-esc="prioridad.name" />
+                                    <span
+                                            t-esc="maintenance.maintenance_priority_id.name" />
                                     <br />
                                     <strong>Fecha:</strong>
                                     <span t-esc="maintenance.request_date" />

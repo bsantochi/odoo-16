@@ -3,17 +3,8 @@ from odoo import _, http
 from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
 from odoo.addons.portal2.controllers.portal2 import Portal2
 from odoo.http import request
-from datetime import datetime
 import werkzeug
 
-
-
-# class MaintenanceController(http.Controller):
-#      @http.route('/my/maintenance_req', type="http", auth='user', website=True)
-#      def portal_my_requests(self, **kw):
-#         maint_req = request.env["maintenance.request"].search([])
-#         return request.render('maintenance_portal.portal_my_requests', { 'maint_req': maint_req })
-    
 
 class MaintenancePortalController(Portal2):
 
@@ -130,8 +121,6 @@ class MaintenancePortalController(Portal2):
     @http.route("/new/maintenance_req", type="http", auth="user", website=True)
     def create_new_maint_request(self, **kw):
         equipment = request.env["maintenance.equipment"].search([])
-        # maintenance_req = request.env["maintenance.request"]
-        # priority = dict(request.env["maintenance.request"]._fields["maintenance_priority"].selection).items()
         priority = request.env["maintenance.maintenance_priority"].search([])
         
         return request.render(

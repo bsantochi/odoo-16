@@ -8,7 +8,7 @@
     'website': "https://beitech.com.ar/",
 
     'category': 'Manufacturing',
-    'version': '0.1',
+    'version': '16.0.1.0.0',
 
     # any module necessary for this one to work correctly
     'depends': ['maintenance', "maintenance_plan", "maintenance_request_sequence", "maintenance_project",
